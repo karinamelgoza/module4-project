@@ -54,3 +54,53 @@ join employee e on c.support_rep_id = e.employee_id;
 
 select al.title, ar.name from album al
 join artist ar on al.artist_id = ar.artist_id;
+
+-- Extra Credit
+
+-- Artist Table 
+
+select * from artist
+order by name desc
+limit 10;
+
+select * from artist
+where name like 'Black%';
+
+select * from artist
+where name like '%Black%';
+
+-- Employee Table
+
+select birth_date from employee
+order by birth_date desc
+limit 1;
+
+select birth_date from employee
+order by birth_date asc
+limit 1;
+
+-- Invoice Table
+
+select count(*) from invoice 
+where billing_state in ('CA', 'TX', 'AZ');
+
+select avg(total) from invoice;
+
+-- Join Queries
+
+select track_id from playlist_track pt
+join playlist p on pt.playlist_id = p.playlist_id
+where p.name = 'Music';
+
+select t.name from track t
+join playlist_track pt on t.track_id = pt.track_id
+where pt.playlist_id = 5;
+
+select t.name, p.name from track t
+join playlist_track pt on t.track_id = pt.track_id
+join playlist p on p.playlist_id = pt.playlist_id;
+
+select t.name, a.title from track t
+join genre g on t.genre_id = g.genre_id
+join album a on a.album_id = t.album_id
+where g.name = 'Alternative & Punk';

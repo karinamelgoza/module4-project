@@ -11,3 +11,14 @@ def sales_reports(log_file):  # setting up function to work on log_file
 
 
 sales_reports(log_file)  # calling the function
+
+
+def melon_orders(log_file):
+    for line in log_file:
+        value = line.split()
+        order = int(value[2])
+        if order > 10:
+            print(line)
+
+
+melon_orders(log_file)
